@@ -10,11 +10,17 @@
   <meta name="description" content="{{ $description }}">
   {{ end }}
 
-  {{ if .Site.Params.author }}
-  <meta name="author" content="{{ .Site.Params.author }}">
-  {{ end }}
+   {{ if .Site.Params.author }}
+   <meta name="author" content="{{ .Site.Params.author }}">
+   {{ end }}
 
-  <link rel="canonical" href="{{ .Permalink | absURL }}">
+   {{ if .Site.Params.favicon }}
+   <link rel="icon" type="image/svg+xml" href="{{ .Site.Params.favicon | absURL }}">
+   {{ else }}
+   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+   {{ end }}
+
+   <link rel="canonical" href="{{ .Permalink | absURL }}">
 
   {{ with .OutputFormats.Get "rss" }}
   <link rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" href="{{ .Permalink }}">

@@ -7,7 +7,8 @@ A minimal, clean Hugo theme with monospace typography and dark/light mode suppor
 - **Minimal Design**
 - **Monospace Typography**
 - **Dark/Light Mode**
-- **RSS Feed** 
+- **RSS Feed**
+- **Customizable Favicon** with dark forest default 
 
 ## Installation
 
@@ -56,7 +57,19 @@ Create a new post:
 ```bash
 hugo new content posts/my-first-post.md
 ```
+
 ## Customization
+
+### Favicon
+
+The theme includes a default dark forest themed favicon. You can customize it in your Hugo config:
+
+```toml
+[params]
+favicon = "/images/my-favicon.svg"
+```
+
+If you don't specify a custom favicon, the theme will use the default dark forest SVG favicon located at `/favicon.svg`.
 
 ### Colors
 
