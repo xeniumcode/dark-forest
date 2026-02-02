@@ -1,0 +1,13 @@
+name = "Dark Forest"
+license = "MIT"
+licenselink = "https://github.com/xeniumcode/dark-forest/blob/main/LICENSE"
+description = "A minimal, clean Hugo theme with monospace typography and dark/light mode"
+homepage = "https://github.com/xeniumcode/dark-forest"
+demosite = ""
+tags = ["minimal", "clean", "dark-mode", "light-mode", "monospace", "blog", "responsive"]
+features = ["dark-mode", "light-mode", "responsive", "blog", "rss"]
+min_version = "0.110.0"
+
+[author]
+  name = "Aman Poonia"
+  homepage = "https://github.com/xeniumcode"
