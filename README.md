@@ -8,7 +8,6 @@ A minimal, clean Hugo theme with monospace typography and dark/light mode suppor
 - **Monospace Typography**
 - **Dark/Light Mode**
 - **RSS Feed**
-- **Customizable Favicon** with dark forest default 
 
 ## Installation
 
