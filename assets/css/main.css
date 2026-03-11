@@ -18,6 +18,16 @@
   --nav-text-color: #16a34a;
 }
 
+
+.link-underlined {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.link-plain {
+  text-decoration: none;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -29,7 +39,7 @@ html {
 }
 
 body {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
   font-size: 0.875rem;
   line-height: 1.6;
   color: var(--text-color);
@@ -97,6 +107,7 @@ header {
   }
 }
 
+/* Navigation */
 nav {
   display: none;
   flex-direction: column;
@@ -166,8 +177,6 @@ nav a[aria-current="page"] {
   }
 
   nav a:hover {
-    text-decoration: underline;
-    text-underline-offset: 2px;
   }
 }
 
@@ -277,8 +286,6 @@ main {
 
 .content a {
   color: var(--text-color);
-  text-decoration: underline;
-  text-underline-offset: 2px;
 }
 
 .content a:hover {
@@ -327,8 +334,6 @@ main {
   border-bottom: none;
 }
 
-
-
 .post-title-wrapper {
    display: flex;
    flex-direction: column;
@@ -344,8 +349,6 @@ main {
 
 .post-link:hover {
   color: var(--link-hover);
-  text-decoration: underline;
-  text-underline-offset: 2px;
 }
 
 .post-date {
@@ -402,8 +405,6 @@ footer {
 
 .footer-nav a:hover {
   color: var(--text-color);
-  text-decoration: underline;
-  text-underline-offset: 2px;
 }
 
 .license-link {
@@ -476,8 +477,6 @@ footer {
 
 .post-content a {
   color: var(--text-color);
-  text-decoration: underline;
-  text-underline-offset: 2px;
 }
 
 .post-content a:hover {
