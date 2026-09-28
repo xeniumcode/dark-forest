@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ .Site.LanguageCode | default "en" }}" data-theme="dark">
+<html lang="{{ .Site.Language.Locale | default "en" }}" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,14 +31,14 @@
   <link rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" href="{{ .Permalink }}">
   {{ end }}
 
-  {{ $style := resources.Get "css/main.css" | resources.Minify | resources.Fingerprint }}
+  {{ $style := resources.Get "css/main.css" | resources.ExecuteAsTemplate "css/main.css" . | resources.Minify | resources.Fingerprint }}
   <link rel="stylesheet" href="{{ $style.RelPermalink }}">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="{{ "fonts/texturina-400.woff2" | relURL }}">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="{{ "fonts/texturina-700.woff2" | relURL }}">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="{{ "fonts/unifrakturcook-700.woff2" | relURL }}">
   {{ if in .Content "<div class=\"highlight\"" }}
-  <link href="https://fonts.googleapis.com/css2?family=Texturina:opsz,wght@12..72,400;12..72,700&family=UnifrakturCook:wght@700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-  {{ else }}
-  <link href="https://fonts.googleapis.com/css2?family=Texturina:opsz,wght@12..72,400;12..72,700&family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="{{ "fonts/jetbrainsmono-400.woff2" | relURL }}">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="{{ "fonts/jetbrainsmono-700.woff2" | relURL }}">
   {{ end }}
 </head>
 <body>
