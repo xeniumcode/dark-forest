@@ -19,6 +19,8 @@ html {
   scroll-behavior: smooth;
   scrollbar-width: thin;
   scrollbar-color: rgba(128, 128, 128, 0.3) var(--bg-color);
+  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -62,6 +64,7 @@ body {
   padding: 4rem 1.5rem 1rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
   overflow-x: clip;
 }
 
@@ -183,6 +186,7 @@ h1.title {
 .content p {
   margin-bottom: 1.5rem;
   text-wrap: pretty;
+  overflow-wrap: break-word;
 }
 
 .content a,
@@ -419,6 +423,7 @@ footer {
   text-align: left;
   text-wrap: pretty;
   hyphens: auto;
+  overflow-wrap: break-word;
 }
 
 .post-content ul,
