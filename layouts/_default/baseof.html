@@ -35,7 +35,11 @@
   <link rel="stylesheet" href="{{ $style.RelPermalink }}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  {{ if in .Content "<div class=\"highlight\"" }}
   <link href="https://fonts.googleapis.com/css2?family=Texturina:opsz,wght@12..72,400;12..72,700&family=UnifrakturCook:wght@700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  {{ else }}
+  <link href="https://fonts.googleapis.com/css2?family=Texturina:opsz,wght@12..72,400;12..72,700&family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
+  {{ end }}
 </head>
 <body>
   <a href="#main" class="skip-link">Skip to content</a>
