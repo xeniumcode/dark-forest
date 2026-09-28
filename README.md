@@ -1,13 +1,19 @@
 # Dark Forest
 
-A minimal, clean Hugo theme with monospace typography and dark/light mode support.
+A minimal black, white, and red Hugo theme with serif body text and blackletter headings.
+
+![Dark Forest theme screenshot](screenshot.png)
 
 ## Features
 
-- **Minimal Design**
-- **Monospace Typography**
-- **Dark/Light Mode**
-- **RSS Feed**
+- **Black/red design** — pure black background, off-white text, red accent
+- **Serif + blackletter type** — Texturina body, UnifrakturCook display headings
+- **Code friendly** — JetBrains Mono with Chroma syntax highlighting
+- **Bottom navigation** — menu lives in the footer
+- **RSS feed** — home, section, and per-post feeds
+- **SEO meta** — description plus Open Graph tags on every page
+- **Lazy images** — Markdown images load lazily via a render hook
+- **Custom 404 page** — text-based, message set from site config
 
 ## Installation
 
@@ -31,7 +37,23 @@ Copy the `example.toml` from the theme directory to your site's root as `hugo.to
 cp themes/dark-forest/example.toml hugo.toml
 ```
 
-Then customize it:
+Then customize it. Available params:
+
+```toml
+[params]
+  author = 'Your Name'
+  description = 'Description of your site'
+  favicon = '/favicon.png'
+  notFoundMessage = 'Text shown on the 404 page'
+  showRecentPosts = true
+  recentPostsCount = 3
+
+[[params.social]]
+  name = 'GitHub'
+  url = 'https://github.com/yourusername'
+  target = '_blank'
+  rel = 'noopener noreferrer'
+```
 
 ## Creating Content
 
@@ -40,9 +62,10 @@ Then customize it:
 Create `content/_index.md`:
 
 ```markdown
----
-title: Home
----
++++
+title = 'Home'
+draft = false
++++
 
 Hey, I am [Your Name]. Welcome to my blog!
 
@@ -61,32 +84,27 @@ hugo new content posts/my-first-post.md
 
 ### Favicon
 
-The theme includes a default dark forest themed favicon. You can customize it in your Hugo config:
+Set a custom favicon in your Hugo config:
 
 ```toml
 [params]
-favicon = "/images/my-favicon.svg"
+favicon = "/images/my-favicon.png"
 ```
 
-If you don't specify a custom favicon, the theme will use the default dark forest SVG favicon located at `/favicon.svg`.
+If you don't specify one, the theme uses its default SVG favicon at `/favicon.svg`.
 
 ### Colors
 
-Edit `themes/nkmason-like/assets/css/main.css` to customize colors:
+Edit `themes/dark-forest/assets/css/main.css` to customize colors:
 
 ```css
-:root {
-  --bg-color: #fafafa;
-  --text-color: #171717;
-  --accent-color: #525252;
-  --muted-color: #737373;
-}
-
+:root,
 [data-theme="dark"] {
-  --bg-color: #0a0a0a;
+  --bg-color: #000000;
   --text-color: #e5e5e5;
-  --accent-color: #a3a3a3;
-  --muted-color: #737373;
+  --accent-color: #ff3333;
+  --muted-color: #a3a3a3;
+  --border-color: rgba(255, 255, 255, 0.1);
 }
 ```
 
