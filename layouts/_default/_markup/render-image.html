@@ -1,1 +1,18 @@
-<img src="{{ .Destination | safeURL }}" alt="{{ .Text }}"{{ with .Title }} title="{{ . }}"{{ end }} loading="lazy">
+{{ $src := .Destination | safeURL }}
+{{ $w := "" }}
+{{ $h := "" }}
+{{ $u := urls.Parse (.Destination | safeURL) }}
+{{ if not $u.IsAbs }}
+  {{ $rel := strings.TrimPrefix "/" $u.Path }}
+  {{ $cfg := false }}
+  {{ if fileExists (printf "static/%s" $rel) }}
+    {{ $cfg = imageConfig (printf "static/%s" $rel) }}
+  {{ else if fileExists (printf "content/%s" $rel) }}
+    {{ $cfg = imageConfig (printf "content/%s" $rel) }}
+  {{ end }}
+  {{ with $cfg }}
+    {{ $w = .Width }}
+    {{ $h = .Height }}
+  {{ end }}
+{{ end }}
+<img src="{{ $src }}" alt="{{ .Text }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ if $w }} width="{{ $w }}" height="{{ $h }}"{{ end }} loading="lazy">
