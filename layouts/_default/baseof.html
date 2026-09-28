@@ -8,6 +8,11 @@
   {{ $description := .Description | default .Site.Params.description | default .Summary | default .Site.Title }}
   {{ if $description }}
   <meta name="description" content="{{ $description }}">
+  <meta property="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}">
+  <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} • {{ .Site.Title }}{{ end }}">
+  <meta property="og:description" content="{{ $description }}">
+  <meta property="og:url" content="{{ .Permalink | absURL }}">
+  <meta property="og:site_name" content="{{ .Site.Title }}">
   {{ end }}
 
    {{ if .Site.Params.author }}
@@ -15,7 +20,7 @@
    {{ end }}
 
    {{ if .Site.Params.favicon }}
-   <link rel="icon" type="image/svg+xml" href="{{ .Site.Params.favicon | absURL }}">
+   <link rel="icon" href="{{ .Site.Params.favicon | absURL }}">
    {{ else }}
    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
    {{ end }}
@@ -28,16 +33,9 @@
 
   {{ $style := resources.Get "css/main.css" | resources.Minify }}
   <link rel="stylesheet" href="{{ $style.RelPermalink }}">
-  <link rel="preconnect" href="https://rsms.me">
-  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-  <script>
-    (function() {
-      const storedTheme = localStorage.getItem('theme');
-      const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const theme = storedTheme || (systemPrefersDark ? 'dark' : 'light');
-      document.documentElement.setAttribute('data-theme', theme);
-    })();
-  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Texturina:opsz,wght@12..72,400;12..72,700&family=UnifrakturCook:wght@700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <a href="#main" class="skip-link">Skip to content</a>
@@ -49,8 +47,5 @@
   </main>
 
   {{ partial "footer.html" . }}
-
-  {{ $js := resources.Get "js/main.js" | resources.Minify }}
-  <script src="{{ $js.RelPermalink }}"></script>
 </body>
 </html>

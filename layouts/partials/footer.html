@@ -1,4 +1,27 @@
 <footer>
+  <nav class="bottom-nav" aria-label="Main menu">
+    <ul>
+      {{ $current := . }}
+      {{ range .Site.Menus.main }}
+      <li>
+        <a href="{{ .URL }}" {{ if $current.IsMenuCurrent "main" . }}aria-current="page"{{ end }}>
+          {{ .Name }}
+        </a>
+      </li>
+      {{ end }}
+      {{ with .OutputFormats.Get "rss" }}
+      <li>
+        <a href="{{ .Permalink }}" target="_blank" rel="noopener noreferrer">RSS</a>
+      </li>
+      {{ else }}
+      {{ with $.Site.Home.OutputFormats.Get "rss" }}
+      <li>
+        <a href="{{ .Permalink }}" target="_blank" rel="noopener noreferrer">RSS</a>
+      </li>
+      {{ end }}
+      {{ end }}
+    </ul>
+  </nav>
   <div class="footer-content">
     <p>
       © {{ now.Year }} {{ .Site.Params.author | default "Author" }}

@@ -1,5 +1,7 @@
 {{ define "main" }}
 <section class="not-found">
-	<img src="/404.gif">
+  <p class="error-code">404</p>
+  <p>{{ .Site.Params.notFoundMessage | default "Nothing here. This page doesn't exist — it may have moved or never existed." }}</p>
+  <p><a href="{{ .Site.BaseURL }}">Go home</a></p>
 </section>
 {{ end }}

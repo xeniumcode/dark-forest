@@ -6,7 +6,7 @@ theme = 'dark-forest'
 [params]
   author = 'Your Name'
   description = 'Description of your site'
-  homeTitle = 'Hello (●＾o＾●)'
+  notFoundMessage = 'Text shown on the 404 page'
   showRecentPosts = true
   recentPostsCount = 5
 
