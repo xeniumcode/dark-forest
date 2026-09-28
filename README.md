@@ -4,17 +4,6 @@ A minimal black, white, and red Hugo theme with serif body text and blackletter 
 
 ![Dark Forest theme screenshot](screenshot.png)
 
-## Features
-
-- **Black/red design** — pure black background, off-white text, red accent
-- **Serif + blackletter type** — Texturina body, UnifrakturCook display headings
-- **Code friendly** — JetBrains Mono with Chroma syntax highlighting
-- **Bottom navigation** — menu lives in the footer
-- **RSS feed** — home, section, and per-post feeds
-- **SEO meta** — description plus Open Graph tags on every page
-- **Lazy images** — Markdown images load lazily via a render hook
-- **Custom 404 page** — text-based, message set from site config
-
 ## Installation
 
 ### Method 1: Git Submodule (Recommended)
